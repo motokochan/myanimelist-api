@@ -1,18 +1,18 @@
 set :application, 'myanimelist-api'
-set :repository,  'git://github.com/chuyeow/myanimelist-api.git'
-set :deploy_to, '/var/apps/myanimelist-api'
+set :repository,  'https://github.com/motokochan/myanimelist-api.git'
+set :branch, 'deploy'
+set :deploy_to, '/var/www/vhosts/api.atarashiiapp.com/application'
 set :scm, :git
 set :deploy_via, :remote_cache
 
-set :user, 'deploy'
-set :runner, 'deploy'
+set :user, 'rommie'
 set :use_sudo, false
 
 set :normalize_asset_timestamps, false
 
-server '198.211.96.88', :app, :web, :db
+server 'api.atarashiiapp.com', :app, :web, :db
 
-ssh_options[:port] = 3456
+ssh_options[:port] = 22
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
 
